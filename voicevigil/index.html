@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voicevigil</title>
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
+</head>
+<body style="background-color: #04011b; color: #fff;">
+  <header>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mx-auto">
+      <div class="container">
+        <a class="navbar-brand" href="#">Voicevigil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup.html">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="jumbotron jumbotron-fluid" style="background: url('images/audio-wave.jpg') no-repeat center center; background-size: cover;">
+    <div class="container text-center">
+      <h1 class="display-4">Detect Deep Fake Audios</h1>
+      <img src="images\voicevigilbg.jpg"/>
+      <p class="lead">Ensure the authenticity of your audio files with our cutting-edge detection technology.</p>
+    </div>
+  </div>
+
+  <!-- Audio Upload Section -->
+  <div class="container">
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8">
+        <div class="upload-box text-center p-5" style="background-color: #1e1a41; border-radius: 20px;">
+          <h4>Upload Your Audio</h4>
+          <p>Drag and drop your file here or click to upload</p>
+          <input type="file" class="form-control-file" id="audioFile" accept="audio/*">
+          <button class="btn btn-primary mt-3" onclick="uploadAudio()">Analyze</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Information Section -->
+  <div class="container text-center mt-5">
+    <h3>How It Works</h3>
+    <p>Our advanced algorithms analyze your audio files to detect any traces of manipulation.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark mt-5">
+    <div class="container text-center py-3">
+      <p>&copy; 2024 Voicevigil. All Rights Reserved.</p>
+      <p>Follow us on
+        <a href="#">Twitter</a>, <a href="#">Facebook</a>, and <a href="#">Instagram
