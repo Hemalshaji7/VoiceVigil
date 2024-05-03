@@ -1,0 +1,67 @@
+body {
+    background-color: #070429; /* Light gray background */ 
+    background-image: linear-gradient(to left, rgb(4, 3, 15), rgb(7, 7, 47),rgb(0, 0, 0));
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh
+  }
+
+.container {
+    max-width: 400px;
+    margin: 100px;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+#resetPasswordSuccess {
+    margin-top: 20px;
+    text-align: centre;
+    display: none;
+}
+
+#resetPasswordSuccess p {
+    color: #0c0723;
+    font-weight: bold;
+}
