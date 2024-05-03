@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="emailid">Email id:</label>
+            <input type="email" id="emailid" name="emailid" required> <!-- Changed type to email -->
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Login</button>
+        </div>
+        <div class="links">
+            <a href="forgot-password.html">Forgot Password?</a>
+            <span> | </span>
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </form>
+</div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        // Here you would typically validate the user's credentials via a backend
+        window.location.href = 'detection.html'; // Redirect to the detection page if credentials are valid
+    });
+</script>
+</body>
+</html>
