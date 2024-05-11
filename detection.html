@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Audio Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="navbar bg-gradient-to-l from-gray-900 to-black p-6 flex justify-between items-center">
+        <div class="voicevigil text-white text-2xl">VoiceVigil</div>
+        <div class="navcontent flex space-x-4">
+            <a href="home.html" class="text-white hover:bg-blue-700 py-2 px-4 rounded transition duration-300">Home</a>
+            <a href="about.html" class="text-white hover:bg-blue-700 py-2 px-4 rounded transition duration-300">About Us</a>
+            <a href="signup.html" class="text-white hover:bg-blue-700 py-2 px-4 rounded transition duration-300">Signup</a>
+            <a href="login.html" class="text-white hover:bg-blue-700 py-2 px-4 rounded transition duration-300">Login</a>
+        </div>
+    </nav>
+    <div class="container mx-auto  my-20 mr-50 ">
+      <h2 class="text-3xl font-bold mb-4">Deepfake Audio Detection</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg p-6">
+              <h3 class="text-xl font-semibold mb-4">Upload Audio File</h3>
+              <!-- Changed label behavior to trigger file input -->
+              <label for="audioFileInput" class="custom-file-upload block mb-4" onclick="audioFileInput.click()">
+                  Select Audio
+              </label>
+              <!-- Modified input to be visible and triggered by label click -->
+              <input type="file" id="audioFileInput" accept="audio/*" class="hidden" onchange="handleFileSelect(event)">
+              <!-- Element to display selected file name -->
+              <div id="selectedFileName" class="text-sm text-gray-600 mb-4 hidden">Selected Audio: <span id="fileNameDisplay"></span></div>
+              <!-- Changed button text to Upload Audio -->
+              <button id="checkAudioBtn" class="btn bg-blue-500 text-white py-2 px-4 rounded transition duration-300 mr-4">Upload Audio</button>
+              <!-- Additional Button -->
+              <button id="testAudioBtn" class="btn bg-green-500 text-white py-2 px-4 rounded transition duration-300">Test Audio</button>
+          </div>
+          <!-- Placeholder for future content -->
+      </div>
+      <div class="mt-10">
+          <h3 class="text-xl font-semibold mb-2">How It Works</h3>
+          <p class="mb-3">Upload your audio file and click "Check Audio" to analyze it for signs of deepfake manipulation.</p>
+          <p>The detection algorithm will examine various features of the audio to determine its authenticity.</p>
+      </div>
+      <!-- Result Display Box -->
+      <div id="resultBox" class="mt-16 hidden">
+          <h3 class="text-xl font-semibold mb-2">Result</h3>
+          <div id="resultContent" class="bg-gray-200 p-10 rounded-lg"></div>
+      </div>
+  </div>
+  
+  <script>
+      const audioFileInput = document.getElementById('audioFileInput');
+      const checkAudioBtn = document.getElementById('checkAudioBtn');
+      const testAudioBtn = document.getElementById('testAudioBtn');
+      const resultBox = document.getElementById('resultBox');
+      const resultContent = document.getElementById('resultContent');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const selectedFileName = document.getElementById('selectedFileName');
+  
+      // Function to handle file selection
+      function handleFileSelect(event) {
+          const file = event.target.files[0];
+          if (!file) {
+              alert('Please select an audio file.');
+              return;
+          }
+          // Display selected file name
+          fileNameDisplay.textContent = file.name;
+          selectedFileName.classList.remove('hidden');
+      }
+  
+      // Function to handle checking audio
+      checkAudioBtn.addEventListener('click', () => {
+          // Trigger file input to open when "Upload Audio" is clicked
+          audioFileInput.click();
+      });
+  
+      // Function to handle testing audio
+      testAudioBtn.addEventListener('click', () => {
+          // Placeholder logic for testing audio
+          console.log('Testing audio...');
+          // Show result box (for demonstration)
+          resultBox.classList.remove('hidden');
+          // Update result content (for demonstration)
+          const isAudioReal = Math.random() < 0.5; // Just a placeholder, randomly assign real or fake
+          const resultMessage = isAudioReal ? 'Audio tested successfully. It is real.' : 'Audio tested successfully. It is fake.';
+          fetch('backend-url-for-audio-accuracy')
+              .then(response => response.json())
+              .then(data => {
+                  resultContent.textContent = `${resultMessage} Accuracy: ${data.accuracy}`;
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+      });
+  </script>
+  
+  
+ 
+        
+                   
+            
+       
+    </section>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="detection.js"></script>
+</body>
+
+</html>
